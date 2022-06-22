@@ -1,1 +1,16 @@
-# Angular_Core_Fundamental
+# Angular Core Fundamental
+- Component
+- Interpolation
+- Property Binding
+- Class Binding
+- Style Binding
+- Event Binding
+- Template
+- Two Way Binding
+- Directives : ngIf, ngFor, ngSwitch
+- Services
+- HTTP
+- Dependency Injection
+- Routes
+- Pipes
+- Component Interaction
