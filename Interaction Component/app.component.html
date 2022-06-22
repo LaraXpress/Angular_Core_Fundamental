@@ -1,0 +1,5 @@
+<div style="text-align: center;">
+  <h1>From App Component</h1>  
+  <h2>{{message}}</h2>
+</div>
+<app-test (childEvent)="message=$event" [parentData]="username" ></app-test>
