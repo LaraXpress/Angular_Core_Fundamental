@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Mazed",
+        "age": 31
+    },
+    {
+        "id": 2,
+        "name": "Masud",
+        "age": 32
+    },
+    {
+        "id": 3,
+        "name": "Mamun",
+        "age": 33
+    },
+    {
+        "id": 4,
+        "name": "Mizan",
+        "age": 34
+    },
+    {
+        "id": 5,
+        "name": "Maruf",
+        "age": 35
+    },
+    {
+        "id": 6,
+        "name": "Munna",
+        "age": 36
+    }
+]
