@@ -6,6 +6,7 @@
 <!-- All Routes go here -->
 <div class="container-fluid">
     <h2 class="text-center">Registration Form</h2>
+    {{registrationForm.value|json}}
     <form [formGroup]="registrationForm">
         <div class="form-group">
             <label for="">Username</label>
@@ -27,9 +28,26 @@
             <input type="passowrd" formControlName="c_password" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
         <br/>
+        <div formGroupName="address">
+            <div class="form-group">
+                <label for="">City</label>
+                <input type="text" formControlName="city" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="">State</label>
+                <input type="text" formControlName="state" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="">Postal Code</label>
+                <input type="text" formControlName="postalCode" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <br>
+        </div>
+        <br>
         <div class="form-group">        
             <input type="submit" value="Register" class="btn btn-primary">
         </div>
-    </form>
-    {{registrationForm.value|json}}
+    </form>    
 </div>
