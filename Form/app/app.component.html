@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <h1>Angular BootCamp Workshop 2022</h1>
+  <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+  </div>
+  <form #userform="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()"novalidate>
+    {{ userform.form.valid }}
+    <!-- {{ userform.value | json }}
+      <hr>
+      {{ userModel | json }} -->
+    <div class="form-group">
+      <label for="">Name : </label>
+      <input type="text" required name="name" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" id=""
+        class="form-control" placeholder="Enter Name ..." [(ngModel)]="userModel.name">
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+    </div><br>
+    <div class="form-group">
+      <label for="">Email Address : </label>
+      <input type="email" required name="email" id="" #email="ngModel"
+        [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="Enter Email ..."
+        [(ngModel)]="userModel.email">
+      <small class="text-danger" [class.d-none]="email.valid||email.untouched">Email is required</small>
+    </div>
+    <div class="form-group">
+      <label for="">Password : </label>
+      <input type="password" name="password" id="" class="form-control" placeholder="Enter Password..."
+        [(ngModel)]="userModel.password">
+    </div>
+    <div class="form-group">
+      <label for="">Course</label>
+      <select (blur)="validatedCourse(course.value)" (change)="validatedCourse(course.value)" required #course="ngModel" [class.is-invalid]="selectedError && course.touched" class="form-control form-select" name="course" id="" [(ngModel)]="userModel.course">
+        <option value="default">Please select a course ...</option>
+        <option *ngFor="let course of courses">{{course}}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="!selectedError || course.untouched">Please choose a course</small>
+    </div>
+    <div class="form-group">
+      <label for="">Phone Number : </label>
+      <input type="tel" name="phone" required #phone="ngModel" pattern="^\d{10}$"
+        [class.is-invalid]="phone.invalid && phone.touched" id="" class="form-control"
+        placeholder="Enter Phone Number ..." [(ngModel)]="userModel.phone">
+      <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required and must be 10 digits</small> -->
+      <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+        <small class="text-danger" *ngIf="phone.errors?.['required']">Phone Number is required</small>
+        <small class="text-danger" *ngIf="phone.errors?.['pattern']">Phone Number must be 10 digits</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <label class="form-check-label">Time Preference :</label><br>
+        <input type="radio" class="form-check-input" name="timePreference" id="" value="morning"
+          [(ngModel)]="userModel.timePreference">
+        <label class="form-check-label">Morning (8AM - 12AM)</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="timePreference" id="" value="evening"
+          [(ngModel)]="userModel.timePreference">
+        <label class="form-check-label">Evening (6PM - 9PM)</label>
+      </div>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="promotionalOffer" id="" value="promotionOffer"
+        [(ngModel)]="userModel.promotionalOffer">
+      <label class="form-check-label">Send me an promotional offer</label>
+    </div><br />
+    <div class="form-group">
+      <label for="">Message : </label>
+      <textarea name="message" class="form-control" id="" cols="30" rows="10"
+        [(ngModel)]="userModel.message"></textarea>
+    </div>
+    <div class="form-group">      
+      <button type="submit" class="btn btn-primary" [disabled]="userform.form.invalid || selectedError">SAVE</button>
+    </div>
+  </form>
+</div>
