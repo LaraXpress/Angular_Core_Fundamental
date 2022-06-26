@@ -1,0 +1,35 @@
+<div style="text-align: center;">
+    <h1>Reactive Forms in Angular</h1>
+    <h3>{{title}}</h3>
+</div>
+<router-outlet></router-outlet>
+<!-- All Routes go here -->
+<div class="container-fluid">
+    <h2 class="text-center">Registration Form</h2>
+    <form [formGroup]="registrationForm">
+        <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" formControlName="username" id="" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="">Email Adress</label>
+            <input type="email" formControlName="email" id="" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="passowrd" formControlName="password" id="" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="">Confirm Password</label>
+            <input type="passowrd" formControlName="c_password" id="" class="form-control" placeholder="" aria-describedby="helpId">
+        </div>
+        <br/>
+        <div class="form-group">        
+            <input type="submit" value="Register" class="btn btn-primary">
+        </div>
+    </form>
+    {{registrationForm.value|json}}
+</div>
